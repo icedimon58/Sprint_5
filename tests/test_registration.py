@@ -1,3 +1,4 @@
+from data import PageUrls
 from helps import AdditionalFunctions
 from tests.page_locators import PageLocators
 from selenium.webdriver.support.wait import WebDriverWait
@@ -16,7 +17,7 @@ class TestRegistrations:
         driver.find_element(*PageLocators.REGISTRATION_BUTTON_ON_REGISTR_PAGE).click()
         WebDriverWait(driver, 2).until(expected_conditions.visibility_of_element_located(
             PageLocators.AUTORISATION_BUTTON))
-        assert PageLocators.LOGIN_PAGE == driver.current_url
+        assert PageUrls.LOGIN_PAGE == driver.current_url
 
     def test_registration_wrong_password(self, driver):
         WebDriverWait(driver, 2).until(expected_conditions.visibility_of_element_located(

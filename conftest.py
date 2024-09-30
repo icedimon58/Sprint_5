@@ -1,11 +1,11 @@
 import pytest
 from selenium import webdriver
-from tests.page_locators import PageLocators
+from data import PageUrls
 
 
 @pytest.fixture()
 def driver():
     driver = webdriver.Chrome()
-    driver.get(PageLocators.URL)
+    driver.get(PageUrls.URL)
     yield driver
     driver.quit()
